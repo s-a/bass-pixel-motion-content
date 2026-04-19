@@ -1,0 +1,48 @@
+{
+  "kind": "video-fx",
+  "id": "film_grain",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "film",
+    "grain",
+    "retro",
+    "noise"
+  ],
+  "name": "Film Grain",
+  "description": "Procedural film grain that reacts to image luminance for maximum realism.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "film_grain.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1,
+      "description": "Overall grain strength."
+    },
+    {
+      "target": "grain_size",
+      "type": "float",
+      "default": 1,
+      "min": 0.1,
+      "max": 4,
+      "description": "Size of the individual silver halide crystals."
+    },
+    {
+      "target": "color_amount",
+      "type": "float",
+      "default": 0.1,
+      "min": 0,
+      "max": 1,
+      "description": "0.0 for monochrome grain, 1.0 for full chromatic grain."
+    }
+  ]
+}

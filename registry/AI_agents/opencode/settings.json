@@ -1,0 +1,8 @@
+{
+  "name": "OpenCode",
+  "type": "AI Agent",
+  "cli_command": "opencode",
+  "featured": true,
+  "order": 20,
+  "steering_file": ".cursorrules"
+}

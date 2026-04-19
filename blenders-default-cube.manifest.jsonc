@@ -1,0 +1,48 @@
+{
+  "kind": "scene-shader",
+  "id": "blenders-default-cube",
+  "version": 1,
+  "name": "BLENDER Default Cube",
+  "description": "A fun tribute to the ubiquitous default Blender cube, now in a shader.",
+  "tags": ["3d", "cube", "blender", "meme"],
+  "author": {
+    "name": "SYSTEM",
+  },
+  "entry": "blenders-default-cube.wgsl",
+  "vertex_count": 228,
+  "audio_sources": [
+    "audio.stem.kicks.rms",
+    "audio.rhythm.kick_phase"
+  ],
+  "video_targets": [
+    "scene",
+  ],
+  "mapping_targets": [
+    {
+      "target": "scene.cube_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.2, 0.6, 1, 1],
+      "description": "Base color of the 3D cube.",
+    },
+    {
+      "target": "scene.cube_size",
+      "category": "General",
+      "type": "float",
+      "min": 0.1,
+      "max": 5,
+      "default": 1,
+      "description": "Scale factor for the 3D cube size.",
+    },
+    {
+      "target": "scene.bg_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.01, 0.01, 0.02, 1],
+      "description": "Main background color of the scene.",
+    },
+  ],
+  "shader_version": "1.1.0",
+}

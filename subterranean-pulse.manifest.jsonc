@@ -1,0 +1,169 @@
+{
+  "kind": "scene-shader",
+  "id": "subterranean-pulse",
+  "version": 1,
+  "shader_version": "1.0.0",
+  "name": "Subterranean Pulse",
+  "description": "Infinite underground cavern structure with glowing fault lines and dense volumetric fog.",
+  "tags": [
+    "cavern",
+    "glow",
+    "fog",
+    "dark",
+    "subterranean"
+  ],
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "subterranean-pulse.wgsl",
+  "audio_history_samples": 32,
+  "audio_sources": [
+    "audio.band.low",
+    "audio.rms",
+    "audio.stem.kicks.peak",
+    "audio.rhythm.beat_phase"
+  ],
+  "video_targets": [
+    "scene"
+  ],
+  "mapping_targets": [
+    {
+      "target": "bg_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.0, 0.8, 0.9, 1],
+      "description": "Background Color"
+    },
+    {
+      "target": "ambient_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "muted",
+      "default": [0.01, 0.01, 0.015, 1],
+      "description": "Rock Ambient Color"
+    },
+    {
+      "target": "accent_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [1.0, 0.0, 0.0, 1],
+      "description": "Glow Accent Color"
+    },
+    {
+      "target": "pulse_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "light-vibrant",
+      "default": [0.08, 0.1, 0.15, 1],
+      "description": "Beat Pulse Color"
+    },
+    {
+      "target": "camera_speed",
+      "category": "General",
+      "type": "float",
+      "default": 0.21,
+      "min": 0.1,
+      "max": 3.0,
+      "description": "Camera Flight Speed"
+    },
+    {
+      "target": "drone_wobble",
+      "category": "General",
+      "type": "float",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 2.0,
+      "description": "Drone Flight Wobble"
+    },
+    {
+      "target": "camera_roll",
+      "category": "General",
+      "type": "float",
+      "default": 0.0,
+      "min": 0,
+      "max": 1.0,
+      "description": "Camera Roll & Twist"
+    },
+    {
+      "target": "geo_pattern",
+      "category": "General",
+      "type": "int",
+      "default": 0,
+      "options": [
+        { "label": "Voronoi Faultlines", "value": 0 },
+        { "label": "Digital Grid Core", "value": 1 },
+        { "label": "Liquid Geode", "value": 2 }
+      ],
+      "description": "Terrain Generation Pattern"
+    },
+    {
+      "target": "geo_height",
+      "category": "General",
+      "type": "float",
+      "default": 0.8,
+      "min": 0.0,
+      "max": 3.0,
+      "description": "Terrain Height Scale"
+    },
+    {
+      "target": "geo_roughness",
+      "category": "General",
+      "type": "float",
+      "default": 1.5,
+      "min": 0.5,
+      "max": 3.0,
+      "description": "Terrain Roughness Detail"
+    },
+    {
+      "target": "geo_scale",
+      "category": "General",
+      "type": "float",
+      "default": 1.5,
+      "min": 0.1,
+      "max": 5.0,
+      "description": "Terrain Noise Scale"
+    },
+    {
+      "target": "emissive_pattern",
+      "category": "General",
+      "type": "int",
+      "default": 1,
+      "options": [
+        { "label": "Fractured Energy", "value": 0 },
+        { "label": "Cyber Circuitry", "value": 1 },
+        { "label": "Bioluminescent Veins", "value": 2 },
+        { "label": "Energy Seams", "value": 3 }
+      ],
+      "description": "Glow Overlay Pattern"
+    },
+    {
+      "target": "pulse_speed",
+      "category": "General",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.0,
+      "max": 5.0,
+      "description": "Glow Animation Speed"
+    },
+    {
+      "target": "glow_width",
+      "category": "General",
+      "type": "float",
+      "default": 0.02,
+      "min": 0.005,
+      "max": 0.2,
+      "description": "Glow Crack Width"
+    },
+    {
+      "target": "emissive_threshold",
+      "category": "General",
+      "type": "float",
+      "default": 0.45,
+      "min": 0.1,
+      "max": 1.0,
+      "description": "Glow Intensity Threshold"
+    }
+  ]
+}

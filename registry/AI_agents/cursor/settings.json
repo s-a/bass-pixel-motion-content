@@ -1,0 +1,9 @@
+{
+  "name": "Cursor",
+  "type": "GUI IDE",
+  "cli_command": "cursor",
+  "executable": "Cursor.exe",
+  "featured": false,
+  "order": 110,
+  "steering_file": ".cursorrules"
+}

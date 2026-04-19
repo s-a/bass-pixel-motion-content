@@ -1,0 +1,9 @@
+{
+  "name": "Google Antigravity",
+  "type": "Terminal",
+  "cli_command": "antigravity",
+  "executable": "Antigravity.exe",
+  "featured": true,
+  "order": 40,
+  "steering_file": "AGENTS.md"
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "video-fx",
+  "id": "light_rays",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "light",
+    "rays",
+    "godrays",
+    "volumetric"
+  ],
+  "name": "Light Rays",
+  "description": "Volumetric light rays (God Rays) projecting from bright image areas.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "light_rays.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "target": "threshold",
+      "type": "float",
+      "default": 0.8,
+      "min": 0.5,
+      "max": 1.5,
+      "description": "Luminance threshold for ray generation."
+    },
+    {
+      "target": "decay",
+      "type": "float",
+      "default": 0.95,
+      "min": 0.8,
+      "max": 1,
+      "description": "How quickly the rays fade as they extend."
+    },
+    {
+      "target": "density",
+      "type": "float",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 1,
+      "description": "Length of the rays."
+    },
+    {
+      "target": "weight",
+      "type": "float",
+      "default": 0.1,
+      "min": 0.01,
+      "max": 0.5
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bass-pixel-motion.local/schema/project-file-definition.v1.schema.json",
+  "title": "Project File Definition v1",
+  "type": "object",
+  "required": ["kind", "version", "scene", "scene_video_fx", "mappings"],
+  "properties": {
+    "kind": {
+      "const": "project"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scene": {
+      "$ref": "#/$defs/sceneRef"
+    },
+    "audio": {
+      "$ref": "#/$defs/projectAudioRef"
+    },
+    "analysis_edits": {
+      "$ref": "#/$defs/projectAnalysisEditsRef"
+    },
+    "assets": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/assetRef"
+      },
+      "default": {}
+    },
+    "scene_settings": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_.]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/sceneSettingValue"
+      },
+      "default": {}
+    },
+    "pinned_scene_settings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "scene_video_fx_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "system_watermark_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "system_watermark_fade_in_start": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "scene_video_fx": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/postFxInstance"
+      }
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mapping"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sceneRef": {
+      "type": "object",
+      "properties": {
+        "shader": {
+          "type": "string",
+          "pattern": "^[^\\\\]+\\.wgsl$"
+        },
+        "manifest": {
+          "type": "string",
+          "pattern": "^[^\\\\]+\\.manifest\\.jsonc$"
+        }
+      },
+      "oneOf": [
+        {
+          "required": ["shader"]
+        },
+        {
+          "required": ["manifest"]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "projectAudioRef": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^\\\\]+\\.wav$"
+        },
+        "noise_floor_db": {
+          "type": "number",
+          "minimum": -100.0,
+          "maximum": 0.0,
+          "default": -60.0
+        },
+        "attack_ms": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1000.0,
+          "default": 0.0
+        },
+        "release_ms": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 5000.0,
+          "default": 0.0
+        },
+        "curve_smoothing": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "default": 1.0
+        }
+      },
+      "additionalProperties": false
+    },
+    "projectAnalysisEditsRef": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^\\\\]+\\.analysis\\.jsonc$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "assetRef": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+$"
+        },
+        "color_space": {
+          "enum": ["srgb", "linear"]
+        },
+        "sampling": {
+          "enum": ["linear", "nearest"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "sceneSettingValue": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 4
+        }
+      ]
+    },
+    "postFxInstance": {
+      "type": "object",
+      "required": ["effect", "version", "params"],
+      "properties": {
+        "effect": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "params": {
+          "type": "object"
+        },
+        "resources": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]*$"
+          },
+          "default": {}
+        },
+        "pinned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "active": {
+          "type": "boolean",
+          "default": true
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "mapping": {
+      "type": "object",
+      "required": ["source", "target"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.]+$"
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.]+$"
+        },
+        "scale": {
+          "type": "number",
+          "default": 1.0
+        },
+        "offset": {
+          "type": "number",
+          "default": 0.0
+        },
+        "clamp_min": {
+          "type": "number"
+        },
+        "clamp_max": {
+          "type": "number"
+        },
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

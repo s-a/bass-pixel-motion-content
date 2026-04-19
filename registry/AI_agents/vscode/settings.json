@@ -1,0 +1,9 @@
+{
+  "name": "VS Code (Copilot)",
+  "type": "GUI IDE",
+  "cli_command": "code",
+  "executable": "code.exe",
+  "featured": false,
+  "order": 150,
+  "steering_file": ".github/copilot-instructions.md"
+}

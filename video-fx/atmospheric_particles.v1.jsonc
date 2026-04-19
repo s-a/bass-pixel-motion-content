@@ -1,0 +1,151 @@
+{
+  "kind": "video-fx",
+  "id": "atmospheric_particles",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "particles",
+    "snow",
+    "atmosphere",
+    "weather"
+  ],
+  "name": "Atmospheric Particles",
+  "description": "Snow-first atmospheric particle layer with realistic top emission and depth-aware falling motion.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "atmospheric_particles.v1.wgsl",
+  "flux_flow": {
+    "capacity": 8192,
+    "geometry": {
+      "kind": "billboard"
+    },
+    "state": {
+      "fields": [
+        { "name": "pos_age", "type": "vec4" },
+        { "name": "velocity_life", "type": "vec4" },
+        { "name": "style", "type": "vec4" },
+        { "name": "seed_data", "type": "vec4" }
+      ]
+    },
+    "stages": {
+      "init": "ff_init",
+      "update": "ff_update",
+      "render_vertex": "ff_vs",
+      "render_fragment": "ff_fs"
+    }
+  },
+  "mapping_targets": [
+    {
+      "target": "lifetime",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.0,
+      "max": 20.0,
+      "description": "Base particle lifetime in seconds before respawn."
+    },
+    {
+      "target": "lifetime_randomizer",
+      "type": "float",
+      "default": 0.25,
+      "min": 0.0,
+      "max": 1.0,
+      "description": "Per-particle lifetime variance amount."
+    },
+    {
+      "target": "density",
+      "type": "float",
+      "default": 0.45,
+      "min": 0.0,
+      "max": 20.0,
+      "description": "Visible snow coverage per image area."
+    },
+    {
+      "target": "particle_size",
+      "type": "float",
+      "default": 0.42,
+      "min": 0.0,
+      "max": 4.0
+    },
+    {
+      "target": "weight",
+      "type": "float",
+      "default": 0.42,
+      "min": 0.0,
+      "max": 4.0,
+      "description": "Effective fall-speed multiplier for the snow layer."
+    },
+    {
+      "target": "softness",
+      "type": "float",
+      "default": 0.75,
+      "min": 0.0,
+      "max": 2.0
+    },
+    {
+      "target": "transparency",
+      "type": "float",
+      "default": 0.0,
+      "min": 0,
+      "max": 1,
+      "description": "1 keeps the soft transparent snow look, 0 forces a much more opaque particle silhouette."
+    },
+    {
+      "target": "depth_spread",
+      "type": "float",
+      "default": 0.55,
+      "min": 0.0,
+      "max": 3.0
+    },
+    {
+      "target": "glow_amount",
+      "type": "float",
+      "default": 0.08,
+      "min": 0.0,
+      "max": 2.0,
+      "description": "Small soft lift for icy highlights."
+    },
+    {
+      "target": "tint",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.92, 0.96, 1.0, 1.0]
+    },
+    {
+      "target": "swirl",
+      "type": "float",
+      "default": 0.35,
+      "min": 0.0,
+      "max": 3.0,
+      "description": "Sideways wind meander and curl, distinct from fall speed."
+    },
+    {
+      "target": "wind_direction",
+      "type": "float",
+      "default": 90.0,
+      "min": 0.0,
+      "max": 360.0,
+      "description": "Wind direction in screen-space degrees. 0=down, 90=right, 180=up, 270=left."
+    },
+    {
+      "target": "wind_strength",
+      "type": "float",
+      "default": 0.0,
+      "min": 0.0,
+      "max": 3.0,
+      "description": "Directed wind force applied along wind_direction."
+    },
+    {
+      "target": "turbulence",
+      "type": "float",
+      "default": 0.2,
+      "min": 0.0,
+      "max": 3.0,
+      "description": "Low-frequency atmospheric disturbance, not aggressive jitter."
+    }
+  ]
+}

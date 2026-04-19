@@ -1,0 +1,9 @@
+{
+  "name": "Zed",
+  "type": "GUI IDE",
+  "cli_command": "zed",
+  "executable": "zed.exe",
+  "featured": false,
+  "order": 160,
+  "steering_file": ".zed/rules.md"
+}

@@ -1,0 +1,82 @@
+name: Release Content Zip
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create staging package
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME}"
+          zip_name="bpm-content-${version}.zip"
+          staging_dir="release-package/bpm-content"
+
+          mkdir -p "${staging_dir}"
+          rsync -a \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude "release-package" \
+            ./ "${staging_dir}/"
+
+          cat > "${staging_dir}/.bpm-content-release.json" <<EOF
+          {
+            "content_version": "${version}",
+            "asset_name": "${zip_name}",
+            "build_source": "github-actions"
+          }
+          EOF
+
+      - name: Generate Manifest Sentinel
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME}"
+          staging_dir="release-package/bpm-content"
+          
+          dir_items=""
+          # Using find and jq to create a robust JSON array
+          # We use github checkout which usually has jq installed in ubuntu runners
+          if dirs=$(cd "${staging_dir}" && find . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -0 -n1 basename); then
+            # Convert bash string of basenames into comma-separated quoted string
+            for d in $dirs; do
+              if [ -n "$dir_items" ]; then
+                dir_items="$dir_items, \"$d\""
+              else
+                dir_items="\"$d\""
+              fi
+            done
+          fi
+
+          cat > "${staging_dir}/bpm-content-system-install.json" <<EOF
+          {
+            "content_version": "${version}",
+            "required_dirs": [${dir_items}]
+          }
+          EOF
+
+      - name: Create zip package
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME}"
+          zip_name="bpm-content-${version}.zip"
+          cd release-package
+          zip -r "../${zip_name}" "bpm-content"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: bpm-content-${{ github.ref_name }}.zip

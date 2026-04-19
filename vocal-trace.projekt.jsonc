@@ -1,0 +1,194 @@
+{
+  "assets": {},
+  "audio": {
+    "attack_ms": 0.0,
+    "curve_smoothing": 1.0,
+    "noise_floor_db": -60.0,
+    "path": "assets/audio/preview-reference.wav",
+    "release_ms": 0.0
+  },
+  "kind": "project",
+  "mappings": [],
+  "scene": {
+    "shader": "vocal-trace.wgsl"
+  },
+  "scene_settings": {
+    "falloff_ms": 80.0,
+    "limiter_input_gain": 3.45,
+    "limiter_ratio": 1.0,
+    "limiter_threshold": 0.93,
+    "line_thickness": 4.75,
+    "scene.bg_color": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scene.wave_2": [
+      0.13333334028720856,
+      0.7176470756530762,
+      0.9490196108818054
+    ],
+    "scene.wave_color": [
+      0.6784313917160034,
+      0.8509804010391235,
+      0.30588236451148987
+    ]
+  },
+  "scene_video_fx": [
+    {
+      "active": false,
+      "effect": "atmospheric_particles",
+      "params": {
+        "density": 0.45,
+        "depth_spread": 0.55,
+        "glow_amount": 0.08,
+        "lifetime": 1.0,
+        "lifetime_randomizer": 0.25,
+        "particle_size": 0.42,
+        "softness": 0.75,
+        "swirl": 0.35,
+        "tint": [
+          0.92,
+          0.96,
+          1.0,
+          1.0
+        ],
+        "transparency": 0.0,
+        "turbulence": 0.2,
+        "weight": 0.42,
+        "wind_direction": 90.0,
+        "wind_strength": 0.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "bloom",
+      "params": {
+        "intensity": 4.0,
+        "radius": 0.13859421382389317,
+        "soft_knee": 0.9476520046136868,
+        "threshold": 0.9254413595422292,
+        "tint": [
+          0.022533957958349452,
+          0.2348023424529489,
+          0.6487730301002012,
+          0.6184011683178278
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "glow",
+      "params": {
+        "intensity": 0.6037597947606402,
+        "radius": 0.4415283427039002,
+        "softness": 0.8997480835823277,
+        "tint": [
+          0.3300544205809706,
+          0.7023536124272175,
+          0.3621801531017804,
+          0.7420448148252771
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "matte",
+      "params": {
+        "desaturation": 0.2,
+        "intensity": 1.0,
+        "milkiness": 0.3,
+        "softness": 0.5
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "light_rays",
+      "params": {
+        "decay": 0.95,
+        "density": 0.5,
+        "intensity": 1.0,
+        "threshold": 0.8,
+        "weight": 0.1
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "lens_flare",
+      "params": {
+        "ghost_count": 4.0,
+        "ghost_dispersal": 0.4,
+        "halo_radius": 0.45,
+        "halo_thickness": 0.05,
+        "intensity": 1.0,
+        "threshold": 0.9
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "film_grain",
+      "params": {
+        "color_amount": 0.1,
+        "grain_size": 1.0,
+        "intensity": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "motion_blur",
+      "params": {
+        "persistence": 0.5
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "retro_8bit",
+      "params": {
+        "color_depth": 8.0,
+        "pixel_size": 4.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "prism_blur",
+      "params": {
+        "chromatic_spread": 0.005,
+        "persistence": 0.7
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    }
+  ],
+  "scene_video_fx_active": false,
+  "system_watermark_active": false,
+  "version": 1
+}

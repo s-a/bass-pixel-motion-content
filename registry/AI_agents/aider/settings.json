@@ -1,0 +1,10 @@
+{
+  "name": "Aider",
+  "type": "Terminal",
+  "cli_command": "aider",
+  "executable": "aider.exe",
+  "featured": true,
+  "order": 10,
+  "steering_file": "CONVENTIONS.md",
+  "cli_args": ["--read", "CONVENTIONS.md"]
+}

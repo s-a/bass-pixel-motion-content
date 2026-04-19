@@ -1,0 +1,8 @@
+{
+  "cli_command": "codex-app",
+  "order": 115,
+  "featured": true,
+  "name": "Codex App",
+  "type": "GUI IDE",
+  "executable": "Codex.exe"
+}

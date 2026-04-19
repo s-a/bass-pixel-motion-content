@@ -1,0 +1,40 @@
+{
+  "kind": "video-fx",
+  "id": "retro_8bit",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "retro",
+    "8bit",
+    "pixel",
+    "lofi"
+  ],
+  "name": "8-Bit Retro",
+  "description": "Simulates classic 8-bit displays through pixelation and color quantization.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "retro_8bit.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "pixel_size",
+      "type": "float",
+      "default": 4,
+      "min": 1,
+      "max": 32,
+      "description": "Size of the retro pixels. 1.0 is no pixelation."
+    },
+    {
+      "target": "color_depth",
+      "type": "float",
+      "default": 8,
+      "min": 2,
+      "max": 64,
+      "description": "Number of color steps per channel. Lower is more posterized."
+    }
+  ]
+}

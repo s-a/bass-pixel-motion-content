@@ -1,0 +1,9 @@
+{
+  "name": "Claude Code",
+  "type": "CLI Agent",
+  "cli_command": "claude",
+  "executable": "claude.cmd",
+  "featured": true,
+  "order": 140,
+  "steering_file": "CLAUDE.md"
+}

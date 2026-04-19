@@ -1,0 +1,524 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bass-pixel-motion.local/schema/shader-manifest.schema.v1.json",
+  "title": "Shader Manifest",
+  "type": "object",
+  "if": {
+    "properties": {
+      "kind": { "const": "scene-shader" }
+    }
+  },
+  "then": {
+    "properties": {
+      "mapping_targets": {
+        "items": { "required": ["category"] }
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "id",
+    "version",
+    "name",
+    "description",
+    "tags",
+    "entry",
+    "mapping_targets"
+  ],
+  "properties": {
+    "kind": {
+      "enum": [
+        "scene-shader",
+        "video-fx"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$"
+    },
+    "version": {
+      "const": 1,
+      "description": "Version number of the compatible rendering engine in the BPM core. Currently, the only allowed integer value is 1."
+    },
+    "shader_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "effect_version": {
+      "$ref": "#/$defs/semver"
+    },
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "$ref": "#/$defs/author"
+    },
+    "entry": {
+      "type": "string",
+      "pattern": "^[^\\\\]+\\.wgsl$"
+    },
+    "text": {
+      "$ref": "#/$defs/textConfig"
+    },
+    "asset_slots": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/assetSlot"
+      },
+      "default": {}
+    },
+    "audio_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.]+$"
+      },
+      "default": []
+    },
+    "audio_history_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_.]+$"
+      },
+      "default": []
+    },
+    "audio_history_samples": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 64
+    },
+    "video_fx_runtime_inputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "motion-vectors-2d",
+          "depth-2d",
+          "previous-color-2d"
+        ]
+      },
+      "uniqueItems": true,
+      "default": [],
+      "description": "Explicitly declare which runtime buffers the scene provides for post-effects."
+    },
+    "mapping_targets": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "$ref": "#/$defs/mappingTarget"
+      }
+    },
+    "vertex_count": {
+      "type": "integer",
+      "minimum": 3,
+      "maximum": 10000000,
+      "default": 3,
+      "description": "Number of vertices the render pass draws. Defaults to 3 (fullscreen triangle) for 2D shaders. Must be set explicitly for 3D mesh shaders (e.g. TRIANGLE_COUNT * 3)."
+    },
+    "release_status": {
+      "enum": [
+        "development",
+        "shipping"
+      ],
+      "default": "development"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+      },
+      "default": []
+    },
+    "resource_inputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/resourceInput"
+      },
+      "default": []
+    },
+    "passes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/passDefinition"
+      },
+      "default": []
+    },
+    "flux_flow": {
+      "$ref": "#/$defs/fluxFlowDefinition"
+    },
+    "video_targets": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "scene",
+          "post",
+          "element"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "assetSlot": {
+      "type": "object",
+      "required": [
+        "required",
+        "kinds"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "kinds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+$"
+          }
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      },
+      "additionalProperties": false
+    },
+    "mappingTarget": {
+      "type": "object",
+      "required": [
+        "target",
+        "type",
+        "default"
+      ],
+      "properties": {
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.]+$"
+        },
+        "type": {
+          "enum": [
+            "float",
+            "int",
+            "bool",
+            "vec2",
+            "vec3",
+            "vec4",
+            "color",
+            "string",
+            "file",
+            "font",
+            "image",
+            "resource",
+            "path:font",
+            "path:wgsl"
+          ]
+        },
+        "default": {},
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mappingOption"
+          }
+        },
+        "x-bpm-color-role": {
+          "description": "Semantic color role for automatic theming via image palette extraction (vibrant color analysis). Each role maps to a swatch from the VibrantPalette computed from the active media's artwork. Assign exactly one role per color target. Avoid assigning the same role to multiple color targets within a single manifest \u2014 each color target should serve a distinct visual purpose. Rule of thumb: Strongly consider using 'muted' or 'dark-muted' for large background canvases to ensure sufficient contrast for 'vibrant' elements.",
+          "oneOf": [
+            {
+              "const": "vibrant",
+              "description": "The most saturated, visually striking color from the palette. Use for primary accents, glow effects, neon highlights, and attention-grabbing elements. This is the 'hero' color \u2014 do not use it for large background areas as it may overpower the composition."
+            },
+            {
+              "const": "muted",
+              "description": "A desaturated, subdued variant of the dominant tone. Ideal for secondary backgrounds, large fill areas, or tinted overlays where color should be present but not dominant. Creates a calm, understated atmosphere."
+            },
+            {
+              "const": "dark-vibrant",
+              "description": "A deeply saturated, dark-toned accent color. Use for borders, frames, shadows, or dark UI elements that still need chromatic richness. Pairs well with 'light-vibrant' for high-contrast combinations."
+            },
+            {
+              "const": "dark-muted",
+              "description": "A dark, low-saturation tone. The preferred choice for primary backgrounds, dark panels, and base layers. Provides a non-distracting canvas that lets brighter accents (vibrant, light-vibrant) stand out."
+            },
+            {
+              "const": "light-vibrant",
+              "description": "A bright, saturated highlight tone. Best suited for text on dark backgrounds, bright UI accents, or glow halos. Guarantees high contrast when paired with 'dark-muted' or 'dark-vibrant' backgrounds."
+            },
+            {
+              "const": "light-muted",
+              "description": "A pale, desaturated tone. Use for light backgrounds, subtle fill areas, or soft ambient light. Creates a gentle, washed-out aesthetic. Avoid pairing with other light roles for text \u2014 contrast will be insufficient."
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "mappingOption": {
+      "type": "object",
+      "required": [
+        "label",
+        "value"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {}
+      },
+      "additionalProperties": false
+    },
+    "textConfig": {
+      "type": "object",
+      "required": [
+        "font_family"
+      ],
+      "properties": {
+        "font_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "font_path": {
+          "type": "string",
+          "pattern": "^[^\\\\]+(?:/[^\\\\]+)*\\.(ttf|otf)$"
+        },
+        "label_font_size": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "value_font_size": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "tracking": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "punctuation_scale": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "resourceInput": {
+      "type": "object",
+      "required": [
+        "name",
+        "kind"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]*$"
+        },
+        "kind": {
+          "enum": [
+            "texture-2d",
+            "texture-2d-linear",
+            "lut-2d",
+            "motion-vectors-2d",
+            "depth-2d",
+            "previous-color-2d"
+          ]
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "space": {
+          "enum": [
+            "uv-per-frame",
+            "px-per-frame"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "passDefinition": {
+      "type": "object",
+      "required": [
+        "entry"
+      ],
+      "properties": {
+        "entry": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "input": {
+          "enum": [
+            "source",
+            "previous"
+          ],
+          "default": "previous"
+        },
+        "blend": {
+          "enum": [
+            "replace",
+            "additive"
+          ],
+          "default": "replace"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluxFlowDefinition": {
+      "type": "object",
+      "required": [
+        "capacity",
+        "geometry",
+        "state",
+        "stages"
+      ],
+      "properties": {
+        "capacity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "geometry": {
+          "$ref": "#/$defs/fluxFlowGeometry"
+        },
+        "state": {
+          "$ref": "#/$defs/fluxFlowState"
+        },
+        "stages": {
+          "$ref": "#/$defs/fluxFlowStages"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluxFlowGeometry": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "billboard",
+            "mesh"
+          ]
+        },
+        "vertex_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluxFlowState": {
+      "type": "object",
+      "required": [
+        "fields"
+      ],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/fluxFlowStateField"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluxFlowStateField": {
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "type": {
+          "enum": [
+            "float",
+            "int",
+            "uint",
+            "vec2",
+            "vec3",
+            "vec4"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "fluxFlowStages": {
+      "type": "object",
+      "required": [
+        "init",
+        "update",
+        "render_vertex",
+        "render_fragment"
+      ],
+      "properties": {
+        "init": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "update": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "render_vertex": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "render_fragment": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

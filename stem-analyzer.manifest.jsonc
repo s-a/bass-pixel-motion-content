@@ -1,0 +1,122 @@
+{
+  "kind": "scene-shader",
+  "id": "stem-analyzer",
+  "version": 1,
+  "shader_version": "1.0.0",
+  "name": "Stem Analyzer Setup",
+  "description": "Technical HUD for kick, snare, hihat, bass and other stems.",
+  "tags": ["utility", "stems", "test", "analyzer"],
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "stem-analyzer.wgsl",
+  "text": {
+    "font_family": "Roboto",
+    "font_path": "assets/font/Roboto-Regular.ttf"
+  },
+  "audio_history_samples": 32,
+  "audio_sources": [
+    "audio.stem.kicks.band.low",
+    "audio.stem.kicks.band.mid",
+    "audio.stem.kicks.band.high",
+    "audio.stem.kicks.rms",
+    "audio.stem.kicks.peak",
+    "audio.stem.kicks.flux",
+    "audio.stem.kicks.rhythm.beat",
+    "audio.stem.snares.band.low",
+    "audio.stem.snares.band.mid",
+    "audio.stem.snares.band.high",
+    "audio.stem.snares.rms",
+    "audio.stem.snares.peak",
+    "audio.stem.snares.flux",
+    "audio.stem.snares.rhythm.beat",
+    "audio.stem.hihats.band.low",
+    "audio.stem.hihats.band.mid",
+    "audio.stem.hihats.band.high",
+    "audio.stem.hihats.rms",
+    "audio.stem.hihats.peak",
+    "audio.stem.hihats.flux",
+    "audio.stem.hihats.rhythm.beat",
+    "audio.stem.bass.band.low",
+    "audio.stem.bass.band.mid",
+    "audio.stem.bass.band.high",
+    "audio.stem.bass.rms",
+    "audio.stem.bass.peak",
+    "audio.stem.bass.flux",
+    "audio.stem.bass.rhythm.beat",
+    "audio.stem.other.band.low",
+    "audio.stem.other.band.mid",
+    "audio.stem.other.band.high",
+    "audio.stem.other.rms",
+    "audio.stem.other.peak",
+    "audio.stem.other.flux",
+    "audio.stem.other.rhythm.beat"
+  ],
+  "video_targets": [
+    "scene"
+  ],
+  "mapping_targets": [
+    {
+      "target": "scene.bg_color",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.03, 0.04, 0.05, 1.0],
+      "description": "Background color."
+    },
+    {
+      "target": "scene.hud_color_kicks",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.95, 0.2, 0.2, 1.0],
+      "description": "Color for kick stem readout."
+    },
+    {
+      "target": "scene.hud_color_snares",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.2, 0.95, 0.2, 1.0],
+      "description": "Color for snare stem readout."
+    },
+    {
+      "target": "scene.hud_color_hihats",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.2, 0.5, 0.95, 1.0],
+      "description": "Color for hihat stem readout."
+    },
+    {
+      "target": "scene.hud_color_bass",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.9, 0.9, 0.1, 1.0],
+      "description": "Color for bass stem readout."
+    },
+    {
+      "target": "scene.hud_color_other",
+      "category": "Styling",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [0.8, 0.2, 0.8, 1.0],
+      "description": "Color for other stem readout."
+    },
+    {
+      "target": "scene.glow_intensity",
+      "category": "Styling",
+      "type": "float",
+      "default": 1.2,
+      "description": "Intensity of Bloom."
+    }
+  ],
+  "asset_slots": {
+    "hud_font": {
+      "required": true,
+      "kinds": ["font", "ttf", "otf"],
+      "description": "HUD Font"
+    }
+  }
+}

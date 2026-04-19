@@ -1,0 +1,52 @@
+{
+  "kind": "video-fx",
+  "id": "light_leaks",
+  "version": 1,
+  "effect_version": "1.1.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "light",
+    "leaks",
+    "organic",
+    "color"
+  ],
+  "name": "Light Leaks",
+  "description": "Smooth organic light leaks with customizable color to match your scene.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "light_leaks.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "target": "speed",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "target": "scale",
+      "type": "float",
+      "default": 2,
+      "min": 0.5,
+      "max": 10
+    },
+    {
+      "target": "tint",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [1, 0.4, 0.2, 1],
+      "description": "Adjust this color to match your background."
+    }
+  ]
+}

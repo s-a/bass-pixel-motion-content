@@ -1,0 +1,275 @@
+{
+  "assets": {},
+  "audio": {
+    "attack_ms": 0.0,
+    "curve_smoothing": 0.009999999776482582,
+    "noise_floor_db": -60.0,
+    "path": "assets/audio/preview-reference.wav",
+    "release_ms": 150.0
+  },
+  "kind": "project",
+  "description": "Atmospheric project featuring an elegant radial glow and fine tracery.",
+  "tags": ["abstract", "elegant", "radial", "glow"],
+  "mappings": [],
+  "scene": {
+    "shader": "filigree-eclipse.wgsl"
+  },
+  "scene_settings": {
+    "scene.bg_color": [
+      0.009999999776482582,
+      0.009999999776482582,
+      0.019999999552965164,
+      1.0
+    ],
+    "scene.color_core": [
+      0.9800000190734864,
+      0.75,
+      0.5199999809265137,
+      1.0
+    ],
+    "scene.color_mist": [
+      0.03999999910593033,
+      0.07000000029802322,
+      0.11999999731779099,
+      1.0
+    ],
+    "scene.color_trim": [
+      0.7400000095367432,
+      0.8999999761581421,
+      1.0,
+      1.0
+    ]
+  },
+  "scene_video_fx": [
+    {
+      "active": false,
+      "effect": "motion_blur",
+      "params": {
+        "persistence": 0.08
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "glow",
+      "params": {
+        "intensity": 0.18,
+        "radius": 5.2,
+        "softness": 0.28,
+        "tint": [
+          0.82,
+          0.9,
+          1.0
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "bloom",
+      "params": {
+        "intensity": 0.16,
+        "radius": 1.9,
+        "soft_knee": 0.32,
+        "threshold": 1.08,
+        "tint": [
+          1.4800000190734863,
+          1.2999999523162842,
+          1.1200000047683716
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "light_rays",
+      "params": {
+        "decay": 0.8412673077214637,
+        "density": 0.8271358368900579,
+        "intensity": 3.844635993933344,
+        "threshold": 0.6944712180600308,
+        "weight": 0.0951397973517594
+      },
+      "pinned": [
+        "density"
+      ],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vintage_film",
+      "params": {
+        "dust": 0.5,
+        "flicker": 0.4,
+        "intensity": 1.0,
+        "scratches": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "thermal",
+      "params": {
+        "edge_enhancement": 3.0837037806200756,
+        "intensity": 0.8331034228893104,
+        "posterize": 26.6217475174728,
+        "synthetic_look": 0.20340383475946805
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "vignette_tint",
+      "params": {
+        "center": [
+          0.5,
+          0.5
+        ],
+        "intensity": 1.7036758527384466,
+        "radius": 1.769272675032404,
+        "softness": 0.8590923724528144,
+        "tint": [
+          0.9,
+          0.8,
+          1.0
+        ]
+      },
+      "pinned": [
+        "center",
+        "tint"
+      ],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "matte",
+      "params": {
+        "desaturation": 0.16,
+        "intensity": 0.34,
+        "milkiness": 0.22,
+        "softness": 0.42
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "song_fade",
+      "params": {
+        "fade_in_seconds": 3.0,
+        "fade_out_seconds": 5.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "prism_blur",
+      "params": {
+        "chromatic_spread": 0.005,
+        "persistence": 0.7
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "retro_8bit",
+      "params": {
+        "color_depth": 45.47563514244518,
+        "pixel_size": 25.90319281284789
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vhs",
+      "params": {
+        "chroma_drift": 0.5,
+        "intensity": 1.0,
+        "jitter": 0.2,
+        "noise": 0.3,
+        "tracking": 0.2
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "film_grain",
+      "params": {
+        "color_amount": 0.1,
+        "grain_size": 1.0,
+        "intensity": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "lens_flare",
+      "params": {
+        "ghost_count": 4.0,
+        "ghost_dispersal": 0.4,
+        "halo_radius": 0.45,
+        "halo_thickness": 0.05,
+        "intensity": 1.0,
+        "threshold": 0.9
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "light_leaks",
+      "params": {
+        "intensity": 1.0,
+        "scale": 2.0,
+        "speed": 1.0,
+        "tint": [
+          1.0,
+          0.4,
+          0.2
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "crt",
+      "params": {
+        "curvature": 0.018302845769038185,
+        "intensity": 0.5347931150389816,
+        "mask_strength": 0.048076645763876616,
+        "vignette": 0.93375493919786
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    }
+  ],
+  "system_watermark_active": false,
+  "version": 1
+}

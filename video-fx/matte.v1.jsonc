@@ -1,0 +1,55 @@
+{
+  "kind": "video-fx",
+  "id": "matte",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "matte",
+    "diffusion",
+    "soft",
+    "film"
+  ],
+  "name": "Mattierung",
+  "description": "Simulates a diffuse matte surface by compressing luma ranges and adding soft light diffusion.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "matte.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "target": "softness",
+      "type": "float",
+      "default": 0.5,
+      "min": 0,
+      "max": 5,
+      "description": "Strength of the diffuse blur."
+    },
+    {
+      "target": "milkiness",
+      "type": "float",
+      "default": 0.3,
+      "min": 0,
+      "max": 1,
+      "description": "How much to lift the black levels."
+    },
+    {
+      "target": "desaturation",
+      "type": "float",
+      "default": 0.2,
+      "min": 0,
+      "max": 1,
+      "description": "Reduces color vibrancy for a more paper-like look."
+    }
+  ]
+}

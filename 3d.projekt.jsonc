@@ -1,0 +1,271 @@
+{
+  "assets": {},
+  "audio": {
+    "attack_ms": 0.0,
+    "curve_smoothing": 1.0,
+    "noise_floor_db": -60.0,
+    "path": "assets/audio/preview-reference.wav",
+    "release_ms": 250.0
+  },
+  "kind": "project",
+  "mappings": [],
+  "scene": {
+    "shader": "3d.wgsl"
+  },
+  "scene_settings": {
+    "scene.bg_color": [
+      0.009999999776482582,
+      0.009999999776482582,
+      0.019999999552965164
+    ],
+    "scene.cube_color": [
+      0.20000000298023224,
+      0.6000000238418579,
+      1.0
+    ],
+    "scene.cube_size": 0.76,
+    "scene.eye_color": [
+      0.30000001192092896,
+      0.8500000238418579,
+      1.0
+    ],
+    "scene.eye_glow": 3.0,
+    "scene.eye_glow_color": [
+      0.20000000298023224,
+      0.5,
+      1.0
+    ]
+  },
+  "scene_video_fx": [
+    {
+      "active": false,
+      "effect": "retro_8bit",
+      "params": {
+        "color_depth": 2.0,
+        "pixel_size": 1.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "motion_blur",
+      "params": {
+        "persistence": 0.07
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "bloom",
+      "params": {
+        "intensity": 0.55,
+        "radius": 0.85,
+        "soft_knee": 0.9,
+        "threshold": 0.28,
+        "tint": [
+          0.3,
+          0.75,
+          1.0,
+          0.45
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "prism_blur",
+      "params": {
+        "chromatic_spread": 0.015640296077532628,
+        "persistence": 0.22402927756622593
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "crt",
+      "params": {
+        "curvature": 0.3061114863701753,
+        "intensity": 1.769938249286584,
+        "mask_strength": 0.17948949930719274,
+        "vignette": 0.31353452365502005
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "glow",
+      "params": {
+        "intensity": 1.0,
+        "radius": 2.0,
+        "softness": 0.5,
+        "tint": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vintage_film",
+      "params": {
+        "dust": 0.5,
+        "flicker": 0.4,
+        "intensity": 1.0,
+        "scratches": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "film_grain",
+      "params": {
+        "color_amount": 0.31751166353974775,
+        "grain_size": 0.5301477248069412,
+        "intensity": 0.8389915693763002
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "lens_flare",
+      "params": {
+        "ghost_count": 0.9816499652584724,
+        "ghost_dispersal": 0.17486574739961916,
+        "halo_radius": 0.5499352411038229,
+        "halo_thickness": 0.2,
+        "intensity": 0.14280967577248974,
+        "threshold": 0.7643215621410258
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "matte",
+      "params": {
+        "desaturation": 0.2,
+        "intensity": 0.73,
+        "milkiness": 0.3,
+        "softness": 0.5
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "light_rays",
+      "params": {
+        "decay": 0.95,
+        "density": 0.5,
+        "intensity": 1.0,
+        "threshold": 0.8,
+        "weight": 0.1
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "light_leaks",
+      "params": {
+        "intensity": 1.0,
+        "scale": 2.0,
+        "speed": 1.0,
+        "tint": [
+          1.0,
+          0.4,
+          0.2
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "vignette_tint",
+      "params": {
+        "center": [
+          0.5,
+          0.5
+        ],
+        "intensity": 0.5855030198887469,
+        "radius": 0.8423357610697406,
+        "softness": 0.7864285336622387,
+        "tint": [
+          0.9,
+          0.8,
+          1.0,
+          1.0
+        ]
+      },
+      "pinned": [
+        "center",
+        "tint"
+      ],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "song_fade",
+      "params": {
+        "fade_in_seconds": 1.0,
+        "fade_out_seconds": 5.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vhs",
+      "params": {
+        "chroma_drift": 0.5,
+        "intensity": 1.0,
+        "jitter": 0.2,
+        "noise": 0.3,
+        "tracking": 0.2
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "thermal",
+      "params": {
+        "edge_enhancement": 2.0,
+        "intensity": 1.0,
+        "posterize": 8.0,
+        "synthetic_look": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    }
+  ],
+  "system_watermark_fade_in_start": 0.05000000074505806,
+  "version": 1
+}

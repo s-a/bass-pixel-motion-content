@@ -1,0 +1,80 @@
+{
+  "kind": "scene-shader",
+  "id": "neon-landscape",
+  "version": 1,
+  "shader_version": "1.0.0",
+  "name": "Neon Landscape",
+  "description": "Organic, fluid neon landscape migrated from Legacy Animation 1 with dynamic nodes & audio reactivity.",
+  "tags": [
+    "landscape",
+    "neon",
+    "organic",
+    "migration"
+  ],
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "neon-landscape.wgsl",
+  "asset_slots": {},
+  "audio_history_samples": 32,
+  "audio_sources": [
+    "audio.stem.kicks.peak",
+    "audio.stem.bass.rms"
+  ],
+  "mapping_targets": [
+    {
+      "target": "bg_color",
+      "category": "Environment",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [
+        0.03,
+        0.03,
+        0.06,
+        1
+      ],
+      "description": "Background structural fog color"
+    },
+    {
+      "target": "accent_color",
+      "category": "Environment",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [
+        0,
+        0.4,
+        1,
+        1
+      ],
+      "description": "Primary emissive neon color"
+    },
+    {
+      "target": "cam_speed",
+      "category": "Camera",
+      "type": "float",
+      "default": 3,
+      "description": "Forward flight speed of the camera"
+    },
+    {
+      "target": "terrain_height",
+      "category": "Terrain",
+      "type": "float",
+      "default": 1.4,
+      "description": "Height displacement multiplier"
+    },
+    {
+      "target": "terrain_scale",
+      "category": "Terrain",
+      "type": "float",
+      "default": 0.3,
+      "description": "Scale of the noise features"
+    },
+    {
+      "target": "glow_intensity",
+      "category": "Effects",
+      "type": "float",
+      "default": 2.5,
+      "description": "Base intensity of the neon contour glow"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Codex",
+  "type": "Terminal",
+  "cli_command": "codex",
+  "featured": false,
+  "order": 210,
+  "steering_file": ".cursorrules"
+}

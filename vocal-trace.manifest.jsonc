@@ -1,0 +1,120 @@
+{
+  "kind": "scene-shader",
+  "id": "vocal-trace",
+  "version": 1,
+  "name": "Vocal Trace",
+  "description": "FluxFlow mirrored spectrum waveform with minimal hold and decay.",
+  "tags": ["waveform", "line", "audio", "flux-flow"],
+  "entry": "vocal-trace.wgsl",
+  "video_targets": ["scene"],
+  "audio_sources": [
+    "audio.spectrum.band_00", "audio.spectrum.band_01", "audio.spectrum.band_02", "audio.spectrum.band_03",
+    "audio.spectrum.band_04", "audio.spectrum.band_05", "audio.spectrum.band_06", "audio.spectrum.band_07",
+    "audio.spectrum.band_08", "audio.spectrum.band_09", "audio.spectrum.band_10", "audio.spectrum.band_11",
+    "audio.spectrum.band_12", "audio.spectrum.band_13", "audio.spectrum.band_14", "audio.spectrum.band_15",
+    "audio.spectrum.band_16", "audio.spectrum.band_17", "audio.spectrum.band_18", "audio.spectrum.band_19",
+    "audio.spectrum.band_20", "audio.spectrum.band_21", "audio.spectrum.band_22", "audio.spectrum.band_23",
+    "audio.spectrum.band_24", "audio.spectrum.band_25", "audio.spectrum.band_26", "audio.spectrum.band_27",
+    "audio.spectrum.band_28", "audio.spectrum.band_29", "audio.spectrum.band_30", "audio.spectrum.band_31",
+    "audio.spectrum.band_32", "audio.spectrum.band_33", "audio.spectrum.band_34", "audio.spectrum.band_35",
+    "audio.spectrum.band_36", "audio.spectrum.band_37", "audio.spectrum.band_38", "audio.spectrum.band_39",
+    "audio.spectrum.band_40", "audio.spectrum.band_41", "audio.spectrum.band_42", "audio.spectrum.band_43",
+    "audio.spectrum.band_44", "audio.spectrum.band_45", "audio.spectrum.band_46", "audio.spectrum.band_47",
+    "audio.spectrum.band_48", "audio.spectrum.band_49", "audio.spectrum.band_50", "audio.spectrum.band_51",
+    "audio.spectrum.band_52", "audio.spectrum.band_53", "audio.spectrum.band_54", "audio.spectrum.band_55",
+    "audio.spectrum.band_56", "audio.spectrum.band_57", "audio.spectrum.band_58", "audio.spectrum.band_59",
+    "audio.spectrum.band_60", "audio.spectrum.band_61", "audio.spectrum.band_62", "audio.spectrum.band_63"
+  ],
+  "mapping_targets": [
+    {
+      "category": "Limiter",
+      "target": "limiter_input_gain",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.0,
+      "max": 4.0,
+      "description": "Drive."
+    },
+    {
+      "category": "Limiter",
+      "target": "limiter_threshold",
+      "type": "float",
+      "default": 0.45,
+      "min": 0.0,
+      "max": 1.0,
+      "description": "Threshold."
+    },
+    {
+      "category": "Limiter",
+      "target": "limiter_ratio",
+      "type": "float",
+      "default": 0.3,
+      "min": 0.0,
+      "max": 1.0,
+      "description": "Compression Ratio."
+    },
+    {
+      "category": "Line",
+      "target": "line_thickness",
+      "type": "float",
+      "default": 5.0,
+      "min": 0.5,
+      "max": 20.0,
+      "description": "Thickness."
+    },
+    {
+      "category": "Line",
+      "target": "falloff_ms",
+      "type": "float",
+      "default": 35.0,
+      "min": 1.0,
+      "max": 1000.0,
+      "description": "Falloff Time Ms."
+    },
+    {
+      "category": "Colors",
+      "target": "scene.bg_color",
+      "type": "color",
+      "default": [0.0, 0.0, 0.0, 1.0],
+      "description": "Background",
+      "x-bpm-color-role": "dark-muted"
+    },
+    {
+      "category": "Colors",
+      "target": "scene.wave_color",
+      "type": "color",
+      "default": [1.0, 1.0, 1.0, 1.0],
+      "description": "Wave 1",
+      "x-bpm-color-role": "light-vibrant"
+    },
+    {
+      "category": "Colors",
+      "target": "scene.wave_2",
+      "type": "color",
+      "default": [1.0, 0.2, 0.2, 1.0],
+      "description": "Wave 2",
+      "x-bpm-color-role": "vibrant"
+    }
+  ],
+  "flux_flow": {
+    // `capacity` controls the number of persistent line knots / rendered segments.
+    // Raise this value to increase waveform tessellation without changing the shader code.
+    "capacity": 384,
+    "geometry": {
+      "kind": "mesh",
+      "vertex_count": 6
+    },
+    "state": {
+      "fields": [
+        { "name": "curve", "type": "vec4" },
+        { "name": "aux", "type": "vec4" }
+      ]
+    },
+    "stages": {
+      "init": "ff_init",
+      "update": "ff_update",
+      "render_vertex": "ff_vs",
+      "render_fragment": "ff_fs"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "video-fx",
+  "id": "prism_blur",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "blur",
+    "chromatic",
+    "prism",
+    "temporal"
+  ],
+  "name": "Prism Blur",
+  "description": "Chromatic temporal blur that creates rainbow-colored trails for moving objects.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "prism_blur.v1.wgsl",
+  "resource_inputs": [
+    {
+      "name": "previous_frame",
+      "kind": "previous-color-2d",
+      "required": true
+    }
+  ],
+  "mapping_targets": [
+    {
+      "target": "persistence",
+      "type": "float",
+      "default": 0.7,
+      "min": 0,
+      "max": 0.99,
+      "description": "Ghosting strength."
+    },
+    {
+      "target": "chromatic_spread",
+      "type": "float",
+      "default": 0.005,
+      "min": 0,
+      "max": 0.05,
+      "description": "Spatial offset between color channels in the trails."
+    }
+  ]
+}

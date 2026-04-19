@@ -1,0 +1,24 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Temporary content artifacts
+codex-artifacts/
+*.tmp
+*.bak
+*.ps1
+.tmp/
+
+# Render and export outputs
+exports/
+renders/
+previews/
+/publish.ps1
+show-cases/*.h264
+show-cases/*.h264.*
+show-cases/_*

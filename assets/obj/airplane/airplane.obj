@@ -1,0 +1,45 @@
+mtllib airplane.mtl
+o Airplane
+
+# Vertices (Punkte im 3D-Raum)
+v 0.0 0.0 2.0
+v 0.0 0.0 -2.0
+v -2.0 0.0 -0.5
+v 2.0 0.0 -0.5
+v 0.0 0.5 0.5
+v 0.0 -0.5 0.0
+v 0.0 1.0 -2.0
+
+# UV-Textur-Koordinaten (2D-Projektion für die Bild-Textur)
+# Diese sagen der Engine, an welcher Stelle im Bild der Vertex liegt (0.0 bis 1.0)
+vt 0.5 1.0
+vt 0.5 0.0
+vt 0.0 0.3
+vt 1.0 0.3
+vt 0.5 0.6
+vt 0.5 0.5
+vt 0.5 0.2
+
+# Normalen (Blickrichtung der Flächen, fürs Licht-Rendering)
+# (Hier sehr vereinfacht nach außen gerichtet)
+vn 0.0 1.0 0.0
+vn 0.0 -1.0 0.0
+vn -1.0 0.0 0.0
+vn 1.0 0.0 0.0
+
+# Ab hier gilt das glänzende rote Material aus der MTL-Datei
+usemtl PlaneMaterial
+s 1
+
+# Faces (Verbinde Vertex/UV) Format: v/vt oder v/vt/vn
+# Wir belassen es simpel mit Vertex/UV-Paaren
+f 1/1 5/5 3/3
+f 1/1 4/4 5/5
+f 3/3 5/5 2/2
+f 4/4 2/2 5/5
+f 1/1 3/3 6/6
+f 1/1 6/6 4/4
+f 3/3 2/2 6/6
+f 4/4 6/6 2/2
+f 2/2 5/5 7/7
+f 2/2 7/7 5/5

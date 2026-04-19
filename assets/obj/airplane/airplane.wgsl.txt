@@ -1,0 +1,32 @@
+// ==============================================================================
+// Automatisch generierte WGSL Arrays aus: airplane.obj
+// Kopiere diesen Block einfach an den Anfang deiner .wgsl Shader-Datei!
+// ==============================================================================
+
+const AIRPLANE_VERTEX_COUNT = 7u;
+const AIRPLANE_FACE_COUNT = 10u;
+
+// Die 3D-Punkte im Raum
+const AIRPLANE_VERTICES = array<vec3<f32>, 7>(
+    vec3<f32>(0.0, 0.0, 2.0),
+    vec3<f32>(0.0, 0.0, -2.0),
+    vec3<f32>(-2.0, 0.0, -0.5),
+    vec3<f32>(2.0, 0.0, -0.5),
+    vec3<f32>(0.0, 0.5, 0.5),
+    vec3<f32>(0.0, -0.5, 0.0),
+    vec3<f32>(0.0, 1.0, -2.0),
+);
+
+// Die Dreiecke (Verbindungen zwischen den Punkten)
+const AIRPLANE_FACES = array<vec3<u32>, 10>(
+    vec3<u32>(0u, 4u, 2u),
+    vec3<u32>(0u, 3u, 4u),
+    vec3<u32>(2u, 4u, 1u),
+    vec3<u32>(3u, 1u, 4u),
+    vec3<u32>(0u, 2u, 5u),
+    vec3<u32>(0u, 5u, 3u),
+    vec3<u32>(2u, 1u, 5u),
+    vec3<u32>(3u, 5u, 1u),
+    vec3<u32>(1u, 4u, 6u),
+    vec3<u32>(1u, 6u, 4u),
+);

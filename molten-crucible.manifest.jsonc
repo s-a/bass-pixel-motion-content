@@ -1,0 +1,94 @@
+{
+  "kind": "scene-shader",
+  "id": "molten-crucible",
+  "version": 1,
+  "shader_version": "1.0.0",
+  "name": "Molten Crucible",
+  "description": "Ultra-realistic fluid magma surface viewed from above. Convection cells of cooling obsidian crust float atop rivers of incandescent lava, driven by the music.",
+  "tags": ["magma", "lava", "fluid", "topview", "volcanic", "fire"],
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "molten-crucible.wgsl",
+  "audio_sources": [
+    "audio.band.low",
+    "audio.rms",
+    "audio.stem.kicks.peak",
+    "audio.rhythm.beat_phase",
+    "audio.band.mid",
+    "audio.band.high"
+  ],
+  "video_targets": [
+    "scene"
+  ],
+  "mapping_targets": [
+    {
+      "target": "magma_color",
+      "category": "Color",
+      "type": "color",
+      "x-bpm-color-role": "vibrant",
+      "default": [1.0, 0.35, 0.05, 1],
+      "description": "Core Magma Color"
+    },
+    {
+      "target": "crust_color",
+      "category": "Color",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.05, 0.04, 0.03, 1],
+      "description": "Cooled Obsidian Crust"
+    },
+    {
+      "target": "glow_color",
+      "category": "Color",
+      "type": "color",
+      "x-bpm-color-role": "light-vibrant",
+      "default": [1.0, 0.85, 0.4, 1],
+      "description": "Hottest Crack Accent"
+    },
+    {
+      "target": "bg_color",
+      "category": "Color",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.02, 0.01, 0.01, 1],
+      "description": "Deep Background"
+    },
+    {
+      "target": "flow_speed",
+      "category": "Dynamics",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.1,
+      "max": 3.0,
+      "description": "Convection Flow Speed"
+    },
+    {
+      "target": "heat_intensity",
+      "category": "Dynamics",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.3,
+      "max": 2.0,
+      "description": "Overall Heat Level"
+    },
+    {
+      "target": "crust_scale",
+      "category": "Surface",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.3,
+      "max": 3.0,
+      "description": "Convection Cell Scale"
+    },
+    {
+      "target": "turbulence",
+      "category": "Surface",
+      "type": "float",
+      "default": 1.0,
+      "min": 0.0,
+      "max": 2.0,
+      "description": "Flow Turbulence"
+    }
+  ]
+}

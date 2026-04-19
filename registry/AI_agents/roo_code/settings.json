@@ -1,0 +1,10 @@
+{
+  "name": "Roo-Code / Cline",
+  "type": "VS Code Ext.",
+  "cli_command": "code",
+  "executable": "code.exe",
+  "cli_args": ["--profile", "roo-code"],
+  "featured": true,
+  "order": 30,
+  "steering_file": ".clinerules"
+}

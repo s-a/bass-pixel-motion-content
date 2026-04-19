@@ -1,0 +1,156 @@
+{
+  "assets": {},
+  "audio": {
+    "attack_ms": 0.0,
+    "curve_smoothing": 0.009999999776482582,
+    "noise_floor_db": -60.0,
+    "path": "assets/audio/preview-reference.wav",
+    "release_ms": 150.0
+  },
+  "kind": "project",
+  "mappings": [],
+  "scene": {
+    "shader": "serpent-gate.wgsl"
+  },
+  "scene_settings": {
+    "scene.glow_intensity": 0.2,
+    "scene.iris_detail": 2.0,
+    "scene.pupil_reactivity": 1.5
+  },
+  "scene_video_fx": [
+    {
+      "active": true,
+      "effect": "bloom",
+      "params": {
+        "intensity": 0.22,
+        "radius": 6.4,
+        "soft_knee": 0.38,
+        "threshold": 1.2,
+        "tint": [
+          1.1,
+          0.95,
+          0.72
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "glow",
+      "params": {
+        "intensity": 0.14,
+        "radius": 4.2,
+        "softness": 0.32,
+        "tint": [
+          0.4,
+          0.95,
+          0.6
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "light_rays",
+      "params": {
+        "decay": 0.88,
+        "density": 0.42,
+        "intensity": 1.8,
+        "threshold": 0.82,
+        "weight": 0.22
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "vignette_tint",
+      "params": {
+        "center": [
+          0.5,
+          0.5
+        ],
+        "intensity": 1.4,
+        "radius": 1.2,
+        "softness": 0.6,
+        "tint": [
+          0.08,
+          0.06,
+          0.04
+        ]
+      },
+      "pinned": [
+        "center"
+      ],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "film_grain",
+      "params": {
+        "color_amount": 0.08,
+        "grain_size": 1.1,
+        "intensity": 0.12
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": true,
+      "effect": "matte",
+      "params": {
+        "desaturation": 0.06,
+        "intensity": 0.18,
+        "milkiness": 0.08,
+        "softness": 0.34
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "crt",
+      "params": {
+        "curvature": 0.02,
+        "intensity": 0.4,
+        "mask_strength": 0.05,
+        "vignette": 0.8
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "prism_blur",
+      "params": {
+        "chromatic_spread": 0.008,
+        "persistence": 0.5
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "song_fade",
+      "params": {
+        "fade_in_seconds": 2.5,
+        "fade_out_seconds": 4.0
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    }
+  ],
+  "system_watermark_active": false,
+  "version": 1
+}

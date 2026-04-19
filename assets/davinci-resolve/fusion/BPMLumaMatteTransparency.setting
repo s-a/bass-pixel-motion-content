@@ -1,0 +1,63 @@
+{
+	Tools = ordered() {
+		BPMLumaMatteTransparency = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "LumaKeyer1",
+					Source = "Solid.Matte",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Merge1",
+					Source = "Background",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Merge1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 339, 55.0909 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 128, 118.485, 64, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -339, -55.0909 }
+			},
+			Tools = ordered() {
+				Merge1 = Merge {
+					Inputs = {
+						Background = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+						EffectMask = Input {
+							SourceOp = "LumaKeyer1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 338, 63.7273 } },
+				},
+				LumaKeyer1 = LumaKeyer {
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						["Solid.Matte"] = Input {
+							SourceOp = "MediaIn2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 340, 115.848 } },
+				}
+			},
+		}
+	}
+}

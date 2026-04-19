@@ -1,0 +1,57 @@
+{
+  "kind": "video-fx",
+  "id": "thermal",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "thermal",
+    "heat",
+    "surveillance",
+    "techno",
+    "false-color"
+  ],
+  "name": "Thermal Vision",
+  "description": "Techno-stylized thermal camera effect evaluating luminance and edges into a false-color heat map.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "thermal.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "description": "Global intensity of the thermal false-color mapping.",
+      "default": 1,
+      "min": 0,
+      "max": 2
+    },
+    {
+      "target": "posterize",
+      "type": "float",
+      "description": "Quantization steps for the heat zones. Lower value means harder steps.",
+      "default": 8,
+      "min": 2,
+      "max": 64
+    },
+    {
+      "target": "edge_enhancement",
+      "type": "float",
+      "description": "Strength of edge detection added to the thermal signal. Makes silhouettes glow.",
+      "default": 2,
+      "min": 0,
+      "max": 10
+    },
+    {
+      "target": "synthetic_look",
+      "type": "float",
+      "description": "Strength of synthetic surveillance artifacts (scanlines, noise).",
+      "default": 0.3,
+      "min": 0,
+      "max": 1
+    }
+  ]
+}

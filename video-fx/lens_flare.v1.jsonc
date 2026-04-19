@@ -1,0 +1,69 @@
+{
+  "kind": "video-fx",
+  "id": "lens_flare",
+  "version": 1,
+  "effect_version": "1.0.0",
+  "video_targets": [
+    "post"
+  ],
+  "release_status": "shipping",
+  "tags": [
+    "lens",
+    "flare",
+    "light",
+    "optical"
+  ],
+  "name": "Lens Flare",
+  "description": "Realistic lens flare with ghosts, halos and chromatic aberration based on bright image areas.",
+  "author": {
+    "name": "SYSTEM"
+  },
+  "entry": "lens_flare.v1.wgsl",
+  "mapping_targets": [
+    {
+      "target": "intensity",
+      "type": "float",
+      "default": 1,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "target": "threshold",
+      "type": "float",
+      "default": 0.9,
+      "min": 0.5,
+      "max": 2,
+      "description": "Luminance threshold for flare generation."
+    },
+    {
+      "target": "ghost_count",
+      "type": "float",
+      "default": 4,
+      "min": 0,
+      "max": 8,
+      "description": "Number of secondary reflections."
+    },
+    {
+      "target": "ghost_dispersal",
+      "type": "float",
+      "default": 0.4,
+      "min": 0.1,
+      "max": 1,
+      "description": "Spacing between ghosts."
+    },
+    {
+      "target": "halo_radius",
+      "type": "float",
+      "default": 0.45,
+      "min": 0.1,
+      "max": 1
+    },
+    {
+      "target": "halo_thickness",
+      "type": "float",
+      "default": 0.05,
+      "min": 0.01,
+      "max": 0.2
+    }
+  ]
+}

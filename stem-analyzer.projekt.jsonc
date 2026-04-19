@@ -1,0 +1,109 @@
+{
+  "assets": {
+    "hud_font": {
+      "path": "assets/font/Roboto-Regular.ttf"
+    }
+  },
+  "audio": {
+    "attack_ms": 0.0,
+    "curve_smoothing": 1.0,
+    "noise_floor_db": -60.0,
+    "path": "assets/audio/preview-reference.wav",
+    "release_ms": 150.0
+  },
+  "kind": "project",
+  "mappings": [],
+  "scene": {
+    "shader": "stem-analyzer.wgsl"
+  },
+  "scene_settings": {
+    "scene.glow_intensity": 2.0
+  },
+  "scene_video_fx": [
+    {
+      "active": false,
+      "effect": "vintage_film",
+      "params": {
+        "dust": 0.5,
+        "flicker": 0.4,
+        "intensity": 1.0,
+        "scratches": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vignette_tint",
+      "params": {
+        "center": [
+          0.5,
+          0.5
+        ],
+        "intensity": 0.72,
+        "radius": 0.72,
+        "softness": 0.22,
+        "tint": [
+          0.9,
+          0.8,
+          1,
+          1
+        ]
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "vhs",
+      "params": {
+        "chroma_drift": 0.5,
+        "intensity": 1,
+        "jitter": 0.2,
+        "noise": 0.3,
+        "tracking": 0.2
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "thermal",
+      "params": {
+        "edge_enhancement": 2,
+        "intensity": 1,
+        "posterize": 8,
+        "synthetic_look": 0.3
+      },
+      "pinned": [],
+      "resources": {},
+      "version": 1
+    },
+    {
+      "active": false,
+      "effect": "bloom",
+      "params": {
+        "intensity": 0.35,
+        "radius": 1.5,
+        "soft_knee": 0.5,
+        "threshold": 1,
+        "tint": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "pinned": [
+        "tint"
+      ],
+      "resources": {},
+      "version": 1
+    }
+  ],
+  "scene_video_fx_active": false,
+  "version": 1
+}

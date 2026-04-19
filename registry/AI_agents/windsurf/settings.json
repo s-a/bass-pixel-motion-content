@@ -1,0 +1,9 @@
+{
+  "name": "Windsurf",
+  "type": "GUI IDE",
+  "cli_command": "windsurf",
+  "executable": "windsurf.exe",
+  "featured": false,
+  "order": 120,
+  "steering_file": ".windsurfrules"
+}

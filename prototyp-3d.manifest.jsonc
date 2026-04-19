@@ -1,0 +1,41 @@
+{
+  "kind": "scene-shader",
+  "id": "prototype-3d",
+  "version": 1,
+  "name": "Tron Airplane 3D",
+  "description": "Experimental prototype exploring 3D rendering concepts in WGSL.",
+  "tags": ["prototype", "3d", "test"],
+  "author": {
+    "name": "SYSTEM",
+  },
+  "entry": "prototyp-3d.wgsl",
+  "video_targets": [
+    "scene",
+  ],
+  "mapping_targets": [
+    {
+      "target": "scene.text.font_text_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "light-vibrant",
+      "default": [0.84, 0.92, 0.95, 1],
+      "description": "Base font color for all calibration text rendering.",
+    },
+    {
+      "target": "scene.debug_text_glow",
+      "category": "General",
+      "type": "float",
+      "default": 1,
+      "description": "Scales the overall calibration text intensity.",
+    },
+    {
+      "target": "scene.bg_color",
+      "category": "General",
+      "type": "color",
+      "x-bpm-color-role": "dark-muted",
+      "default": [0.002, 0.004, 0.009, 1],
+      "description": "Base background color of the calibration scene.",
+    },
+  ],
+  "shader_version": "1.0.0",
+}
