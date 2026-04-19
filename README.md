@@ -25,7 +25,7 @@ Each screenshot links to the generated MP4, and the metadata is sourced from the
 | [![Preview](./show-cases/serpent-gate-preview.png "Scene: Serpent Gate - Shader: serpent-gate.wgsl")](./show-cases/serpent-gate.mp4?raw=true) | `1.0.0` |
 | [![Preview](./show-cases/stem-analyzer-preview.png "Scene: Stem Analyzer Setup - Shader: stem-analyzer.wgsl")](./show-cases/stem-analyzer.mp4?raw=true) | `1.0.0` |
 | [![Preview](./show-cases/subterranean-pulse-preview.png "Scene: Subterranean Pulse - Shader: subterranean-pulse.wgsl")](./show-cases/subterranean-pulse.mp4?raw=true) | `1.0.0` |
-| [![Preview](./show-cases/vocal-trace-preview.png "Scene: Vocal Trace - Shader: vocal-trace.wgsl")](./show-cases/vocal-trace.mp4?raw=true) | `schema v1` |
+| [![Preview](./show-cases/vocal-trace-preview.png "Scene: Vocal Trace - Shader: vocal-trace.wgsl")](./show-cases/vocal-trace.mp4?raw=true) | `1.0.0` |
 
 The repository code and original content are licensed under MIT. See LICENSE.
 
